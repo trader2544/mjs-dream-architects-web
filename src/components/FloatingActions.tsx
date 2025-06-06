@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button';
 
 const FloatingActions = () => {
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-      {/* WhatsApp Button */}
+    <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-between px-6">
+      {/* WhatsApp Button - Left Side */}
       <Button
         onClick={() => window.open('https://wa.me/qr/W7Y5C2TH34Q2B1')}
         className="w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full shadow-lg hover-scale flex items-center justify-center"
@@ -15,7 +15,7 @@ const FloatingActions = () => {
         </svg>
       </Button>
 
-      {/* Call Button */}
+      {/* Call Button - Right Side */}
       <Button
         onClick={() => window.open('tel:0711236128')}
         className="w-14 h-14 bg-blue-500 hover:bg-blue-600 rounded-full shadow-lg hover-scale flex items-center justify-center"

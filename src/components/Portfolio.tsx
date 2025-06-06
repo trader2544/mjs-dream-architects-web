@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -89,11 +88,11 @@ const Portfolio = () => {
   ];
 
   const filters = [
-    { key: 'all', label: 'All Projects', icon: <Building2 className="w-4 h-4" /> },
-    { key: 'residential', label: 'Residential', icon: <Home className="w-4 h-4" /> },
-    { key: 'commercial', label: 'Commercial', icon: <Factory className="w-4 h-4" /> },
-    { key: 'construction', label: 'Construction', icon: <Hammer className="w-4 h-4" /> },
-    { key: 'design', label: 'Design', icon: <Building2 className="w-4 h-4" /> }
+    { key: 'all', label: 'All Projects', icon: <Building2 className="w-3 md:w-4 h-3 md:h-4" /> },
+    { key: 'residential', label: 'Residential', icon: <Home className="w-3 md:w-4 h-3 md:h-4" /> },
+    { key: 'commercial', label: 'Commercial', icon: <Factory className="w-3 md:w-4 h-3 md:h-4" /> },
+    { key: 'construction', label: 'Construction', icon: <Hammer className="w-3 md:w-4 h-3 md:h-4" /> },
+    { key: 'design', label: 'Design', icon: <Building2 className="w-3 md:w-4 h-3 md:h-4" /> }
   ];
 
   const filteredProjects = activeFilter === 'all' 
@@ -101,20 +100,25 @@ const Portfolio = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-16 md:py-24 bg-gray-50">
+    <section id="portfolio" className="py-12 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             Our Projects Portfolio
           </h2>
-          <div className="w-24 h-1 bg-blue-500 mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Showcasing our finest work in design and construction
+          <div className="w-16 md:w-24 h-1 bg-blue-500 mx-auto mb-6 md:mb-8"></div>
+          <p className="text-sm md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+            <span className="hidden md:block">
+              Showcasing our finest work in design and construction
+            </span>
+            <span className="md:hidden">
+              Our finest design & construction work
+            </span>
           </p>
         </div>
 
-        {/* Mobile Collapsible Filters */}
-        <div className="md:hidden mb-8">
+        {/* Mobile Collapsible Filters - More Compact */}
+        <div className="md:hidden mb-6">
           {filters.map((filter) => (
             <MobileCollapsibleCard
               key={filter.key}
@@ -124,7 +128,8 @@ const Portfolio = () => {
             >
               <Button
                 onClick={() => setActiveFilter(filter.key)}
-                className={`w-full ${
+                size="sm"
+                className={`w-full text-xs ${
                   activeFilter === filter.key 
                     ? "bg-blue-500 hover:bg-blue-600 text-white" 
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -161,7 +166,7 @@ const Portfolio = () => {
             <CarouselContent>
               {filteredProjects.map((project) => (
                 <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale group">
+                  <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden hover-scale group">
                     <div className="aspect-[4/3] overflow-hidden">
                       <img 
                         src={project.image} 
@@ -169,17 +174,17 @@ const Portfolio = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <div className="p-3 md:p-6">
+                      <h3 className="text-sm md:text-xl font-bold text-gray-900 mb-1 md:mb-2">
                         {project.title}
                       </h3>
-                      <p className="text-gray-600 mb-4">
+                      <p className="text-gray-600 mb-2 md:mb-4 text-xs md:text-base">
                         {project.description}
                       </p>
                       <Button 
                         variant="outline" 
                         size="sm"
-                        className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+                        className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white text-xs md:text-sm"
                       >
                         View Details
                       </Button>

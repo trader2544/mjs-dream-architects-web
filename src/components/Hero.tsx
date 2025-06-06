@@ -15,7 +15,8 @@ const Hero = () => {
     <>
       <section 
         id="home"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen md:min-h-screen flex items-center justify-center overflow-hidden"
+        style={{ minHeight: 'calc(100vh - 0px)' }}
       >
         {/* Slideshow Background */}
         <HeroSlideshow />
@@ -90,50 +91,50 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Mobile Content */}
-        <div className="md:hidden relative z-10 text-center text-white px-4 w-full">
-          {/* Mobile Hero Card */}
-          <div className="backdrop-blur-md bg-white/10 rounded-2xl border border-white/20 p-6 shadow-2xl mx-4">
-            <div className="mb-4">
+        {/* Mobile Content - Compact Design */}
+        <div className="md:hidden relative z-10 text-center text-white px-3 w-full min-h-[70vh] flex flex-col justify-center">
+          {/* Mobile Hero Card - More Compact */}
+          <div className="backdrop-blur-md bg-white/10 rounded-xl border border-white/20 p-4 shadow-2xl mx-2">
+            <div className="mb-3">
               <img 
                 src="/lovable-uploads/f8a3ef57-cdb8-4bde-826e-f6b0abc964cc.png" 
                 alt="MJS Products Limited" 
-                className="h-12 w-auto mx-auto mb-4"
+                className="h-8 w-auto mx-auto mb-3"
               />
             </div>
             
-            <h1 className="text-2xl font-bold mb-4 animate-fade-in">
+            <h1 className="text-lg font-bold mb-3 animate-fade-in">
               Design. Build. Inspire.
             </h1>
             
-            <p className="text-sm mb-6 text-white/90 animate-fade-in">
-              Transforming dreams into timeless structures with expert craftsmanship.
+            <p className="text-xs mb-4 text-white/90 animate-fade-in">
+              Expert craftsmanship & innovative design
             </p>
 
-            {/* Mobile Service Pills */}
-            <div className="flex flex-wrap justify-center gap-2 mb-6 text-xs">
-              <div className="flex items-center space-x-1 bg-white/10 backdrop-blur-sm rounded-full px-3 py-2">
-                <Building2 className="w-3 h-3" />
-                <span>Architecture</span>
+            {/* Mobile Service Pills - Smaller */}
+            <div className="flex flex-wrap justify-center gap-1 mb-4 text-xs">
+              <div className="flex items-center space-x-1 bg-white/10 backdrop-blur-sm rounded-full px-2 py-1">
+                <Building2 className="w-2 h-2" />
+                <span>Design</span>
               </div>
-              <div className="flex items-center space-x-1 bg-white/10 backdrop-blur-sm rounded-full px-3 py-2">
-                <Hammer className="w-3 h-3" />
-                <span>Construction</span>
+              <div className="flex items-center space-x-1 bg-white/10 backdrop-blur-sm rounded-full px-2 py-1">
+                <Hammer className="w-2 h-2" />
+                <span>Build</span>
               </div>
-              <div className="flex items-center space-x-1 bg-white/10 backdrop-blur-sm rounded-full px-3 py-2">
-                <Users className="w-3 h-3" />
-                <span>Management</span>
+              <div className="flex items-center space-x-1 bg-white/10 backdrop-blur-sm rounded-full px-2 py-1">
+                <Users className="w-2 h-2" />
+                <span>Manage</span>
               </div>
             </div>
             
-            {/* Mobile Action Buttons */}
-            <div className="space-y-3 animate-fade-in">
+            {/* Mobile Action Buttons - Smaller */}
+            <div className="space-y-2 animate-fade-in">
               <Button 
                 size="sm"
                 onClick={scrollToContact}
-                className="bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30 font-semibold w-full"
+                className="bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30 font-semibold w-full text-xs py-2"
               >
-                Request a Quote
+                Get Quote
               </Button>
               
               <div className="flex gap-2">
@@ -141,16 +142,16 @@ const Hero = () => {
                   size="sm"
                   variant="outline"
                   onClick={() => window.open('tel:0711236128')}
-                  className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold flex-1"
+                  className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold flex-1 text-xs py-2"
                 >
-                  Call Now
+                  Call
                 </Button>
                 
                 <Button 
                   size="sm"
                   variant="outline"
                   onClick={() => window.open('https://wa.me/qr/W7Y5C2TH34Q2B1')}
-                  className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold flex-1"
+                  className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold flex-1 text-xs py-2"
                 >
                   WhatsApp
                 </Button>
@@ -158,8 +159,8 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="animate-bounce mt-6">
-            <ArrowDown className="w-6 h-6 mx-auto text-white/80" />
+          <div className="animate-bounce mt-4">
+            <ArrowDown className="w-5 h-5 mx-auto text-white/80" />
           </div>
         </div>
       </section>
