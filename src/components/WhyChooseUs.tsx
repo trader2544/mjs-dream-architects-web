@@ -1,5 +1,7 @@
 
 import { Award, Clock, Users, Shield } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -38,7 +40,8 @@ const WhyChooseUs = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, index) => (
             <div 
               key={index}
@@ -55,6 +58,40 @@ const WhyChooseUs = () => {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+              }),
+            ]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {reasons.map((reason, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-4/5">
+                  <div className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                      <reason.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-3">
+                      {reason.title}
+                    </h3>
+                    <p className="text-blue-100 text-sm leading-relaxed">
+                      {reason.description}
+                    </p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </div>
     </section>

@@ -1,5 +1,7 @@
 
 import { Eye, Target, Heart } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 const AboutUs = () => {
   const values = [
@@ -35,7 +37,8 @@ const AboutUs = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {values.map((value, index) => (
             <div 
               key={index}
@@ -52,6 +55,40 @@ const AboutUs = () => {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+              }),
+            ]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {values.map((value, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-4/5">
+                  <div className="text-center bg-white rounded-xl p-6 shadow-lg">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-blue-500 rounded-full flex items-center justify-center">
+                      <value.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">
+                      {value.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {value.description}
+                    </p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </div>
     </section>
