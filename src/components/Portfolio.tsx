@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import MobileCollapsibleCard from './MobileCollapsibleCard';
+import { Building2, Home, Hammer, Factory } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -48,15 +50,50 @@ const Portfolio = () => {
       title: "Mixed-Use Development",
       category: "commercial",
       description: "Commercial and residential mixed-use building"
+    },
+    {
+      id: 7,
+      image: "/lovable-uploads/fcebccef-525e-4ce2-bbdb-49720f902800.png",
+      title: "Architectural Masterpiece",
+      category: "design",
+      description: "Modern mixed-use development with innovative design"
+    },
+    {
+      id: 8,
+      image: "/lovable-uploads/81dd85bb-7936-4957-9e55-d20fcb4f5b00.png",
+      title: "Construction Progress",
+      category: "construction",
+      description: "High-rise building under construction showing our expertise"
+    },
+    {
+      id: 9,
+      image: "/lovable-uploads/605637a4-ad12-446d-af84-46dea7a5aa8d.png",
+      title: "Site Development",
+      category: "construction",
+      description: "Professional site preparation and development services"
+    },
+    {
+      id: 10,
+      image: "/lovable-uploads/5b8a02e3-5430-44a8-9298-ec2f00d4bafc.png",
+      title: "Structural Framework",
+      category: "construction",
+      description: "Quality structural work and framework construction"
+    },
+    {
+      id: 11,
+      image: "/lovable-uploads/c94479b7-9f84-4a04-949a-8ee71447ac77.png",
+      title: "Residential Design",
+      category: "residential",
+      description: "Beautiful residential home with modern amenities"
     }
   ];
 
   const filters = [
-    { key: 'all', label: 'All Projects' },
-    { key: 'residential', label: 'Residential' },
-    { key: 'commercial', label: 'Commercial' },
-    { key: 'design', label: 'Design' },
-    { key: 'interior', label: 'Interior' }
+    { key: 'all', label: 'All Projects', icon: <Building2 className="w-4 h-4" /> },
+    { key: 'residential', label: 'Residential', icon: <Home className="w-4 h-4" /> },
+    { key: 'commercial', label: 'Commercial', icon: <Factory className="w-4 h-4" /> },
+    { key: 'construction', label: 'Construction', icon: <Hammer className="w-4 h-4" /> },
+    { key: 'design', label: 'Design', icon: <Building2 className="w-4 h-4" /> }
   ];
 
   const filteredProjects = activeFilter === 'all' 
@@ -76,20 +113,44 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Project Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* Mobile Collapsible Filters */}
+        <div className="md:hidden mb-8">
+          {filters.map((filter) => (
+            <MobileCollapsibleCard
+              key={filter.key}
+              title={filter.label}
+              icon={filter.icon}
+              defaultOpen={filter.key === activeFilter}
+            >
+              <Button
+                onClick={() => setActiveFilter(filter.key)}
+                className={`w-full ${
+                  activeFilter === filter.key 
+                    ? "bg-blue-500 hover:bg-blue-600 text-white" 
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                View {filter.label}
+              </Button>
+            </MobileCollapsibleCard>
+          ))}
+        </div>
+
+        {/* Desktop Project Filters */}
+        <div className="hidden md:flex flex-wrap justify-center gap-4 mb-12">
           {filters.map((filter) => (
             <Button
               key={filter.key}
               variant={activeFilter === filter.key ? "default" : "outline"}
               onClick={() => setActiveFilter(filter.key)}
-              className={`px-6 py-2 ${
+              className={`px-6 py-2 flex items-center space-x-2 ${
                 activeFilter === filter.key 
                   ? "bg-blue-500 hover:bg-blue-600" 
                   : "border-blue-500 text-blue-500 hover:bg-blue-50"
               }`}
             >
-              {filter.label}
+              {filter.icon}
+              <span>{filter.label}</span>
             </Button>
           ))}
         </div>

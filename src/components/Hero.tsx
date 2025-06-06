@@ -1,6 +1,7 @@
 
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Building2, Hammer, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import HeroSlideshow from './HeroSlideshow';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -11,65 +12,86 @@ const Hero = () => {
   };
 
   return (
-    <section 
-      id="home"
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 overflow-hidden"
-    >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-black/20"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-      
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-        <div className="mb-6">
-          <img 
-            src="/lovable-uploads/f8a3ef57-cdb8-4bde-826e-f6b0abc964cc.png" 
-            alt="MJS Products Limited" 
-            className="h-20 md:h-24 w-auto mx-auto mb-4"
-          />
-        </div>
+    <>
+      {/* SEO Meta tags would be handled by Helmet or similar in a real app */}
+      <section 
+        id="home"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
+        {/* Slideshow Background */}
+        <HeroSlideshow />
         
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
-          Design. Build. Inspire.
-        </h1>
-        
-        <p className="text-lg md:text-xl lg:text-2xl mb-8 text-blue-100 max-w-2xl mx-auto animate-fade-in">
-          Transforming your dreams into timeless structures.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in">
-          <Button 
-            size="lg"
-            onClick={scrollToContact}
-            className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-8 py-3 text-lg w-full sm:w-auto"
-          >
-            Request a Quote
-          </Button>
+        {/* Glassmorphism Content Container */}
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+          {/* Glassmorphism card */}
+          <div className="backdrop-blur-md bg-white/10 rounded-3xl border border-white/20 p-8 md:p-12 shadow-2xl">
+            <div className="mb-6">
+              <img 
+                src="/lovable-uploads/f8a3ef57-cdb8-4bde-826e-f6b0abc964cc.png" 
+                alt="MJS Products Limited - Professional Construction & Design Services" 
+                className="h-16 md:h-20 w-auto mx-auto mb-6"
+              />
+            </div>
+            
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
+              Design. Build. Inspire.
+            </h1>
+            
+            <p className="text-base md:text-lg lg:text-xl mb-8 text-white/90 max-w-2xl mx-auto animate-fade-in">
+              Transforming your dreams into timeless structures with expert craftsmanship and innovative design.
+            </p>
+
+            {/* Service highlights with modern icons */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-sm">
+              <div className="flex items-center justify-center space-x-2 bg-white/10 backdrop-blur-sm rounded-xl p-3">
+                <Building2 className="w-5 h-5" />
+                <span>Architecture & Design</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2 bg-white/10 backdrop-blur-sm rounded-xl p-3">
+                <Hammer className="w-5 h-5" />
+                <span>Construction Services</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2 bg-white/10 backdrop-blur-sm rounded-xl p-3">
+                <Users className="w-5 h-5" />
+                <span>Project Management</span>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 animate-fade-in">
+              <Button 
+                size="lg"
+                onClick={scrollToContact}
+                className="bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30 font-semibold px-8 py-3 text-lg w-full sm:w-auto transition-all"
+              >
+                Request a Quote
+              </Button>
+              
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => window.open('tel:0711236128')}
+                className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold px-8 py-3 text-lg w-full sm:w-auto"
+              >
+                Call Now
+              </Button>
+              
+              <Button 
+                size="lg"
+                variant="outline"
+                onClick={() => window.open('https://wa.me/qr/W7Y5C2TH34Q2B1')}
+                className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold px-8 py-3 text-lg w-full sm:w-auto hover-scale"
+              >
+                WhatsApp Us
+              </Button>
+            </div>
+          </div>
           
-          <Button 
-            size="lg"
-            variant="outline"
-            onClick={() => window.open('tel:0711236128')}
-            className="border-white text-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-3 text-lg w-full sm:w-auto"
-          >
-            Call Now
-          </Button>
-          
-          <Button 
-            size="lg"
-            variant="outline"
-            onClick={() => window.open('https://wa.me/qr/W7Y5C2TH34Q2B1')}
-            className="border-white text-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-3 text-lg w-full sm:w-auto hover-scale"
-          >
-            WhatsApp Us
-          </Button>
+          <div className="animate-bounce mt-8">
+            <ArrowDown className="w-8 h-8 mx-auto text-white/80" />
+          </div>
         </div>
-        
-        <div className="animate-bounce">
-          <ArrowDown className="w-8 h-8 mx-auto" />
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
