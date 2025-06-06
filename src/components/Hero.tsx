@@ -15,8 +15,8 @@ const Hero = () => {
     <>
       <section 
         id="home"
-        className="relative min-h-screen md:min-h-screen flex items-center justify-center overflow-hidden"
-        style={{ minHeight: 'calc(100vh - 0px)' }}
+        className="relative min-h-[60vh] md:min-h-screen flex items-center justify-center overflow-hidden"
+        style={{ minHeight: window.innerWidth < 768 ? '60vh' : 'calc(100vh - 0px)' }}
       >
         {/* Slideshow Background */}
         <HeroSlideshow />
@@ -91,28 +91,28 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Mobile Content - Compact Design */}
-        <div className="md:hidden relative z-10 text-center text-white px-3 w-full min-h-[70vh] flex flex-col justify-center">
-          {/* Mobile Hero Card - More Compact */}
-          <div className="backdrop-blur-md bg-white/10 rounded-xl border border-white/20 p-4 shadow-2xl mx-2">
-            <div className="mb-3">
+        {/* Mobile Content - More Compact Design */}
+        <div className="md:hidden relative z-10 text-center text-white px-2 w-full min-h-[50vh] flex flex-col justify-center">
+          {/* Mobile Hero Card - Even More Compact */}
+          <div className="backdrop-blur-md bg-white/10 rounded-lg border border-white/20 p-3 shadow-2xl mx-1">
+            <div className="mb-2">
               <img 
                 src="/lovable-uploads/f8a3ef57-cdb8-4bde-826e-f6b0abc964cc.png" 
                 alt="MJS Products Limited" 
-                className="h-8 w-auto mx-auto mb-3"
+                className="h-6 w-auto mx-auto mb-2"
               />
             </div>
             
-            <h1 className="text-lg font-bold mb-3 animate-fade-in">
+            <h1 className="text-base font-bold mb-2 animate-fade-in">
               Design. Build. Inspire.
             </h1>
             
-            <p className="text-xs mb-4 text-white/90 animate-fade-in">
+            <p className="text-xs mb-3 text-white/90 animate-fade-in">
               Expert craftsmanship & innovative design
             </p>
 
             {/* Mobile Service Pills - Smaller */}
-            <div className="flex flex-wrap justify-center gap-1 mb-4 text-xs">
+            <div className="flex flex-wrap justify-center gap-1 mb-3 text-xs">
               <div className="flex items-center space-x-1 bg-white/10 backdrop-blur-sm rounded-full px-2 py-1">
                 <Building2 className="w-2 h-2" />
                 <span>Design</span>
@@ -132,17 +132,17 @@ const Hero = () => {
               <Button 
                 size="sm"
                 onClick={scrollToContact}
-                className="bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30 font-semibold w-full text-xs py-2"
+                className="bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30 font-semibold w-full text-xs py-1.5 h-7"
               >
                 Get Quote
               </Button>
               
-              <div className="flex gap-2">
+              <div className="flex gap-1">
                 <Button 
                   size="sm"
                   variant="outline"
                   onClick={() => window.open('tel:0711236128')}
-                  className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold flex-1 text-xs py-2"
+                  className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold flex-1 text-xs py-1.5 h-7"
                 >
                   Call
                 </Button>
@@ -151,7 +151,7 @@ const Hero = () => {
                   size="sm"
                   variant="outline"
                   onClick={() => window.open('https://wa.me/qr/W7Y5C2TH34Q2B1')}
-                  className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold flex-1 text-xs py-2"
+                  className="border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 font-semibold flex-1 text-xs py-1.5 h-7"
                 >
                   WhatsApp
                 </Button>
@@ -159,8 +159,8 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="animate-bounce mt-4">
-            <ArrowDown className="w-5 h-5 mx-auto text-white/80" />
+          <div className="animate-bounce mt-3">
+            <ArrowDown className="w-4 h-4 mx-auto text-white/80" />
           </div>
         </div>
       </section>

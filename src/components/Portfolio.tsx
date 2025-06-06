@@ -84,6 +84,76 @@ const Portfolio = () => {
       title: "Residential Design",
       category: "residential",
       description: "Beautiful residential home with modern amenities"
+    },
+    {
+      id: 12,
+      image: "/lovable-uploads/8c4db243-a866-4b77-bfc3-c662a266ec22.png",
+      title: "Mixed-Use Complex",
+      category: "commercial",
+      description: "Multi-level commercial and residential building with parking"
+    },
+    {
+      id: 13,
+      image: "/lovable-uploads/a8e3283e-9353-4f15-b901-abf3940097be.png",
+      title: "Modern Petrol Station",
+      category: "commercial",
+      description: "Contemporary fuel station with commercial facilities"
+    },
+    {
+      id: 14,
+      image: "/lovable-uploads/e7ff85cb-1db2-4325-b934-086ca9e6901d.png",
+      title: "Site Planning",
+      category: "design",
+      description: "Strategic site layout and development planning"
+    },
+    {
+      id: 15,
+      image: "/lovable-uploads/9e02b8c3-9236-4930-8c0d-0fd109c19f24.png",
+      title: "Modern Apartments",
+      category: "residential",
+      description: "Contemporary multi-story residential complex"
+    },
+    {
+      id: 16,
+      image: "/lovable-uploads/94c2f93e-86a9-4a00-a4f7-5926497937d1.png",
+      title: "Luxury Villa",
+      category: "residential",
+      description: "Elegant single-family home with contemporary design"
+    },
+    {
+      id: 17,
+      image: "/lovable-uploads/ba64e3c1-a653-45ac-8922-efd3a2f99177.png",
+      title: "Stone Mansion",
+      category: "residential",
+      description: "Traditional stone construction with modern amenities"
+    },
+    {
+      id: 18,
+      image: "/lovable-uploads/eee12261-a15a-4a00-8437-1219e3f86b04.png",
+      title: "Classic Home",
+      category: "residential",
+      description: "Traditional design with contemporary features"
+    },
+    {
+      id: 19,
+      image: "/lovable-uploads/1917d49d-cc64-43ce-8604-554dfecd427f.png",
+      title: "Innovative Roofing",
+      category: "design",
+      description: "Unique architectural roofing solutions"
+    },
+    {
+      id: 20,
+      image: "/lovable-uploads/e029aea3-0c06-492a-91aa-f29a119520f5.png",
+      title: "Circular Design",
+      category: "design",
+      description: "Modern circular architectural concept"
+    },
+    {
+      id: 21,
+      image: "/lovable-uploads/75e4c7a6-d29f-426a-9b9e-2790ae4ec3a0.png",
+      title: "Interior Layout",
+      category: "design",
+      description: "Comprehensive interior space planning and design"
     }
   ];
 
@@ -100,14 +170,14 @@ const Portfolio = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-12 md:py-24 bg-gray-50">
+    <section id="portfolio" className="py-8 md:py-12 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <h2 className="text-xl md:text-2xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 md:mb-4 lg:mb-6">
             Our Projects Portfolio
           </h2>
-          <div className="w-16 md:w-24 h-1 bg-blue-500 mx-auto mb-6 md:mb-8"></div>
-          <p className="text-sm md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="w-12 md:w-16 lg:w-24 h-1 bg-blue-500 mx-auto mb-4 md:mb-6 lg:mb-8"></div>
+          <p className="text-xs md:text-sm lg:text-lg xl:text-xl text-gray-600 max-w-3xl mx-auto">
             <span className="hidden md:block">
               Showcasing our finest work in design and construction
             </span>
@@ -118,7 +188,7 @@ const Portfolio = () => {
         </div>
 
         {/* Mobile Collapsible Filters - More Compact */}
-        <div className="md:hidden mb-6">
+        <div className="md:hidden mb-4">
           {filters.map((filter) => (
             <MobileCollapsibleCard
               key={filter.key}
@@ -166,7 +236,7 @@ const Portfolio = () => {
             <CarouselContent>
               {filteredProjects.map((project) => (
                 <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden hover-scale group">
+                  <div className="bg-white rounded-lg md:rounded-xl lg:rounded-2xl shadow-lg overflow-hidden hover-scale group">
                     <div className="aspect-[4/3] overflow-hidden">
                       <img 
                         src={project.image} 
@@ -174,17 +244,17 @@ const Portfolio = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-                    <div className="p-3 md:p-6">
-                      <h3 className="text-sm md:text-xl font-bold text-gray-900 mb-1 md:mb-2">
+                    <div className="p-2 md:p-3 lg:p-6">
+                      <h3 className="text-xs md:text-sm lg:text-xl font-bold text-gray-900 mb-1 md:mb-2">
                         {project.title}
                       </h3>
-                      <p className="text-gray-600 mb-2 md:mb-4 text-xs md:text-base">
+                      <p className="text-gray-600 mb-2 md:mb-4 text-xs md:text-xs lg:text-base">
                         {project.description}
                       </p>
                       <Button 
                         variant="outline" 
                         size="sm"
-                        className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white text-xs md:text-sm"
+                        className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white text-xs md:text-sm h-6 md:h-8"
                       >
                         View Details
                       </Button>
