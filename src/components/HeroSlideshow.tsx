@@ -4,81 +4,22 @@ import { useState, useEffect } from 'react';
 const HeroSlideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Selected 3 cool construction images for hero section
   const slides = [
     {
-      image: "/lovable-uploads/fcebccef-525e-4ce2-bbdb-49720f902800.png",
-      title: "Modern Architecture & Design",
-      subtitle: "Creating innovative mixed-use developments"
+      image: "/lovable-uploads/1b574229-f1af-4fef-a4c4-2adfababca1f.png",
+      title: "Professional Construction in Progress",
+      subtitle: "Expert building and construction management"
     },
     {
-      image: "/lovable-uploads/81dd85bb-7936-4957-9e55-d20fcb4f5b00.png",
-      title: "Professional Construction",
-      subtitle: "Expert building and renovation services"
+      image: "/lovable-uploads/5119285b-c467-4203-aa35-c554a2fd261b.png",
+      title: "Foundation & Structural Excellence",
+      subtitle: "Quality concrete work and structural engineering"
     },
     {
-      image: "/lovable-uploads/605637a4-ad12-446d-af84-46dea7a5aa8d.png",
-      title: "Site Development",
-      subtitle: "Complete construction management solutions"
-    },
-    {
-      image: "/lovable-uploads/5b8a02e3-5430-44a8-9298-ec2f00d4bafc.png",
-      title: "Structural Excellence",
-      subtitle: "Quality craftsmanship in every project"
-    },
-    {
-      image: "/lovable-uploads/c94479b7-9f84-4a04-949a-8ee71447ac77.png",
-      title: "Residential Projects",
-      subtitle: "Beautiful homes and living spaces"
-    },
-    {
-      image: "/lovable-uploads/8c4db243-a866-4b77-bfc3-c662a266ec22.png",
-      title: "Mixed-Use Development",
-      subtitle: "Commercial and residential integration"
-    },
-    {
-      image: "/lovable-uploads/a8e3283e-9353-4f15-b901-abf3940097be.png",
-      title: "Petrol Station Complex",
-      subtitle: "Modern commercial fuel facilities"
-    },
-    {
-      image: "/lovable-uploads/e7ff85cb-1db2-4325-b934-086ca9e6901d.png",
-      title: "Site Planning & Development",
-      subtitle: "Strategic layout and infrastructure"
-    },
-    {
-      image: "/lovable-uploads/9e02b8c3-9236-4930-8c0d-0fd109c19f24.png",
-      title: "Apartment Complex",
-      subtitle: "Multi-story residential buildings"
-    },
-    {
-      image: "/lovable-uploads/94c2f93e-86a9-4a00-a4f7-5926497937d1.png",
-      title: "Contemporary Homes",
-      subtitle: "Modern residential architecture"
-    },
-    {
-      image: "/lovable-uploads/ba64e3c1-a653-45ac-8922-efd3a2f99177.png",
-      title: "Traditional Elegance",
-      subtitle: "Classic home design with modern comfort"
-    },
-    {
-      image: "/lovable-uploads/eee12261-a15a-4a00-8437-1219e3f86b04.png",
-      title: "Stone & Brick Craftsmanship",
-      subtitle: "Timeless materials and expert construction"
-    },
-    {
-      image: "/lovable-uploads/1917d49d-cc64-43ce-8604-554dfecd427f.png",
-      title: "Innovative Roofing",
-      subtitle: "Modern architectural solutions"
-    },
-    {
-      image: "/lovable-uploads/e029aea3-0c06-492a-91aa-f29a119520f5.png",
-      title: "Contemporary Design",
-      subtitle: "Unique circular and modern concepts"
-    },
-    {
-      image: "/lovable-uploads/75e4c7a6-d29f-426a-9b9e-2790ae4ec3a0.png",
-      title: "Interior Planning",
-      subtitle: "Comprehensive space design and layout"
+      image: "/lovable-uploads/b91e45cc-ae92-4b0b-bd6f-14378beb6acb.png",
+      title: "Modern Building Construction",
+      subtitle: "Contemporary residential and commercial projects"
     }
   ];
 
@@ -102,12 +43,7 @@ const HeroSlideshow = () => {
           <img
             src={slide.image}
             alt={slide.title}
-            className="w-full h-full object-cover md:object-cover object-center"
-            style={{
-              // Mobile-specific sizing
-              transform: window.innerWidth < 768 ? 'scale(1.1)' : 'scale(1)',
-              objectPosition: window.innerWidth < 768 ? 'center center' : 'center center'
-            }}
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>

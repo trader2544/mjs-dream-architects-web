@@ -154,6 +154,48 @@ const Portfolio = () => {
       title: "Interior Layout",
       category: "design",
       description: "Comprehensive interior space planning and design"
+    },
+    {
+      id: 22,
+      image: "/lovable-uploads/d6efa990-87bb-49e1-8151-b3389728d822.png",
+      title: "Foundation Work",
+      category: "construction",
+      description: "Professional foundation laying and concrete reinforcement"
+    },
+    {
+      id: 23,
+      image: "/lovable-uploads/28bc1599-f2e1-45cd-9c46-98b7bb47cf27.png",
+      title: "Concrete Pouring",
+      category: "construction",
+      description: "Expert concrete pouring and finishing work"
+    },
+    {
+      id: 24,
+      image: "/lovable-uploads/854d1743-e55f-4787-8242-48381aa45e7c.png",
+      title: "Multi-Story Construction",
+      category: "construction",
+      description: "Multi-level residential building construction"
+    },
+    {
+      id: 25,
+      image: "/lovable-uploads/4f08a53b-f170-430f-bf09-df46a34d86e3.png",
+      title: "Steel Framework",
+      category: "construction",
+      description: "Professional steel framework and structural work"
+    },
+    {
+      id: 26,
+      image: "/lovable-uploads/9ce42974-0ef8-4100-a2fe-ee30efe81197.png",
+      title: "Two-Story Home",
+      category: "residential",
+      description: "Modern two-story residential construction"
+    },
+    {
+      id: 27,
+      image: "/lovable-uploads/3966d56a-930c-472d-bd44-df8e810f0610.png",
+      title: "Contemporary House",
+      category: "residential",
+      description: "Contemporary residential home with modern features"
     }
   ];
 

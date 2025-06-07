@@ -28,12 +28,12 @@ const Header = ({ isScrolled }: HeaderProps) => {
     )}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+          {/* Logo - Increased size */}
           <div className="flex items-center space-x-3">
             <img 
               src="/lovable-uploads/f8a3ef57-cdb8-4bde-826e-f6b0abc964cc.png" 
               alt="MJS Products Limited" 
-              className="h-8 md:h-10 w-auto"
+              className="h-10 md:h-14 w-auto"
             />
             <div className="hidden sm:block">
               <h1 className={cn(
