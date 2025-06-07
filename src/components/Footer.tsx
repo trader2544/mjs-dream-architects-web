@@ -98,7 +98,14 @@ const Footer = () => {
                 © {currentYear} MJS Products Limited. All rights reserved.
               </p>
               <p className="text-gray-500 text-xs mt-1">
-                Powered by <span className="text-blue-400 font-semibold">Digitel</span>
+                Powered by <a 
+                  href="https://telvix.tech" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-400 font-semibold hover:text-blue-300 transition-colors"
+                >
+                  Telvix
+                </a>
               </p>
             </div>
             <div className="flex space-x-4">
