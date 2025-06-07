@@ -33,6 +33,7 @@ const Index = () => {
         <meta name="description" content="MJS Products Limited offers expert construction, architecture, and design services. Transforming dreams into timeless structures with innovative design and quality craftsmanship." />
         <meta name="keywords" content="construction, architecture, design, building services, project management, residential construction, commercial construction, MJS Products" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Telvix" />
         <meta property="og:title" content="MJS Products Limited - Professional Construction & Design Services" />
         <meta property="og:description" content="Transforming your dreams into timeless structures with expert craftsmanship and innovative design." />
         <meta property="og:type" content="website" />

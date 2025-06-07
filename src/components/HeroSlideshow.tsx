@@ -1,26 +1,10 @@
-
 import { useState, useEffect } from 'react';
 
 const HeroSlideshow = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Updated slides array with all construction images including new uploads
+  // Updated slides array with first 3 images removed
   const slides = [
-    {
-      image: "/lovable-uploads/1b574229-f1af-4fef-a4c4-2adfababca1f.png",
-      title: "Professional Construction in Progress",
-      subtitle: "Expert building and construction management"
-    },
-    {
-      image: "/lovable-uploads/5119285b-c467-4203-aa35-c554a2fd261b.png",
-      title: "Foundation & Structural Excellence",
-      subtitle: "Quality concrete work and structural engineering"
-    },
-    {
-      image: "/lovable-uploads/b91e45cc-ae92-4b0b-bd6f-14378beb6acb.png",
-      title: "Modern Building Construction",
-      subtitle: "Contemporary residential and commercial projects"
-    },
     {
       image: "/lovable-uploads/88851f8a-eb45-4d62-a570-97c323c43a3f.png",
       title: "Multi-Story Residential Complex",
