@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Phone, ArrowDown } from 'lucide-react';
@@ -65,8 +64,8 @@ const Index = () => {
         <meta name="format-detection" content="telephone=yes" />
         
         <link rel="canonical" href="https://mjsproducts.co.ke/" />
-        <link rel="alternate" hreflang="en-ke" href="https://mjsproducts.co.ke/" />
-        <link rel="alternate" hreflang="sw-ke" href="https://mjsproducts.co.ke/sw/" />
+        <link rel="alternate" hrefLang="en-ke" href="https://mjsproducts.co.ke/" />
+        <link rel="alternate" hrefLang="sw-ke" href="https://mjsproducts.co.ke/sw/" />
         
         {/* Structured Data for Local Business */}
         <script type="application/ld+json">

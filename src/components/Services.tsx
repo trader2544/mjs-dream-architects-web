@@ -1,109 +1,143 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Building2, Hammer, Lightbulb, Users, Award, Shield } from 'lucide-react';
+import AnimatedCard from './AnimatedCard';
 
 const Services = () => {
   const [activeCategory, setActiveCategory] = useState('design');
 
   const serviceCategories = {
     design: {
-      title: "Design Services",
+      title: "Architectural Excellence",
+      icon: Building2,
+      color: "from-slate-600 to-slate-700",
       services: [
-        "Architectural Design",
-        "Structural Design", 
-        "Interior Design",
-        "Landscape Design",
-        "3D Renderings & Visualization",
-        "Project Planning & Feasibility Studies"
+        { name: "Luxury Residential Design", desc: "Bespoke architectural solutions for discerning clients" },
+        { name: "Commercial Architecture", desc: "Modern office complexes and retail spaces" },
+        { name: "Interior Design & Styling", desc: "Premium interior concepts with international standards" },
+        { name: "Landscape Architecture", desc: "Sophisticated outdoor living environments" },
+        { name: "3D Visualization & Renderings", desc: "Photorealistic presentations of your vision" },
+        { name: "Urban Planning", desc: "Large-scale development and master planning" }
       ]
     },
     construction: {
-      title: "Construction Services",
+      title: "Premium Construction",
+      icon: Hammer,
+      color: "from-slate-500 to-slate-600",
       services: [
-        "Residential & Commercial Building Construction",
-        "Renovations & Remodeling",
-        "Project Management",
-        "Site Supervision",
-        "Finishing Works (tiling, painting, ceilings)"
+        { name: "Luxury Home Construction", desc: "High-end residential builds with premium finishes" },
+        { name: "Commercial Development", desc: "Office towers, shopping centers, and mixed-use projects" },
+        { name: "Renovation & Restoration", desc: "Heritage preservation and modern upgrades" },
+        { name: "Project Management", desc: "End-to-end construction oversight and coordination" },
+        { name: "Quality Assurance", desc: "Rigorous quality control and international standards" }
       ]
     },
-    additional: {
-      title: "Additional Services",
+    consulting: {
+      title: "Strategic Consulting",
+      icon: Lightbulb,
+      color: "from-slate-400 to-slate-500",
       services: [
-        "Cost Estimation & Budgeting",
-        "Permit & Approval Assistance",
-        "Material Sourcing",
-        "Sustainable/Green Building Solutions"
+        { name: "Investment Advisory", desc: "Real estate development feasibility and ROI analysis" },
+        { name: "Regulatory Compliance", desc: "NEMA approvals, permits, and legal compliance" },
+        { name: "Sustainable Building", desc: "Green building certification and eco-friendly solutions" },
+        { name: "Cost Optimization", desc: "Value engineering and budget optimization strategies" }
       ]
     }
   };
 
   return (
-    <section id="services" className="py-12 md:py-24 bg-white">
+    <section id="services" className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-slate-100">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
-            Our Services
+        <AnimatedCard animation="fade-up" className="text-center mb-16">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-2xl mb-6">
+            <Award className="w-8 h-8 text-white" />
+          </div>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold gradient-text mb-6">
+            Distinguished Services
           </h2>
-          <div className="w-16 md:w-24 h-1 bg-blue-500 mx-auto mb-6 md:mb-8"></div>
-          <p className="text-sm md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
-            <span className="hidden md:block">
-              Comprehensive design and construction solutions tailored to your vision
-            </span>
-            <span className="md:hidden">
-              Complete design & construction solutions
-            </span>
+          <div className="w-20 md:w-32 h-1 bg-gradient-to-r from-slate-600 to-slate-700 mx-auto mb-8"></div>
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Exceptional architectural and construction services crafted for Kenya's most prestigious projects
           </p>
-        </div>
+        </AnimatedCard>
 
-        {/* Service Category Tabs */}
-        <div className="flex flex-col sm:flex-row justify-center mb-8 md:mb-12 gap-2 md:gap-4">
-          {Object.entries(serviceCategories).map(([key, category]) => (
-            <Button
-              key={key}
-              variant={activeCategory === key ? "default" : "outline"}
-              size={window.innerWidth < 768 ? "sm" : "lg"}
-              onClick={() => setActiveCategory(key)}
-              className={`px-3 md:px-6 py-2 md:py-3 text-xs md:text-base font-semibold ${
-                activeCategory === key 
-                  ? "bg-blue-500 hover:bg-blue-600" 
-                  : "border-blue-500 text-blue-500 hover:bg-blue-50"
-              }`}
-            >
-              {category.title}
-            </Button>
-          ))}
-        </div>
+        {/* Service Category Navigation */}
+        <AnimatedCard animation="scale-in" delay={200} className="flex flex-wrap justify-center mb-12 gap-4">
+          {Object.entries(serviceCategories).map(([key, category]) => {
+            const IconComponent = category.icon;
+            return (
+              <Button
+                key={key}
+                variant={activeCategory === key ? "default" : "outline"}
+                size="lg"
+                onClick={() => setActiveCategory(key)}
+                className={`group px-6 py-4 text-base font-semibold rounded-2xl transition-all duration-300 hover-lift ${
+                  activeCategory === key 
+                    ? `bg-gradient-to-r ${category.color} text-white shadow-xl` 
+                    : "border-2 border-slate-300 text-slate-700 hover:border-slate-400 hover:bg-slate-50"
+                }`}
+              >
+                <IconComponent className="w-5 h-5 mr-2" />
+                {category.title}
+              </Button>
+            );
+          })}
+        </AnimatedCard>
 
-        {/* Active Service Category */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-50 rounded-xl md:rounded-2xl p-4 md:p-8 lg:p-12">
-            <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-gray-900 mb-6 md:mb-8 text-center">
-              {serviceCategories[activeCategory as keyof typeof serviceCategories].title}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
+        {/* Active Service Category Display */}
+        <AnimatedCard animation="fade-up" delay={400} className="max-w-6xl mx-auto">
+          <div className="glass-effect rounded-3xl p-8 md:p-12 border border-slate-200 shadow-2xl">
+            <div className="text-center mb-10">
+              {(() => {
+                const IconComponent = serviceCategories[activeCategory as keyof typeof serviceCategories].icon;
+                return <IconComponent className="w-12 h-12 mx-auto mb-4 text-slate-600" />;
+              })()}
+              <h3 className="text-2xl md:text-4xl font-bold gradient-text mb-4">
+                {serviceCategories[activeCategory as keyof typeof serviceCategories].title}
+              </h3>
+              <div className="w-16 h-1 bg-gradient-to-r from-slate-600 to-slate-700 mx-auto"></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
               {serviceCategories[activeCategory as keyof typeof serviceCategories].services.map((service, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center p-3 md:p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                <AnimatedCard 
+                  key={index} 
+                  animation="slide-left" 
+                  delay={index * 100}
+                  className="group"
                 >
-                  <div className="w-1.5 md:w-2 h-1.5 md:h-2 bg-blue-500 rounded-full mr-3 md:mr-4 flex-shrink-0"></div>
-                  <span className="text-gray-700 font-medium text-xs md:text-base">{service}</span>
-                </div>
+                  <div className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-slate-300 transition-all duration-300 hover-lift shadow-lg hover:shadow-xl">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-3 h-3 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full mt-2"></div>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-slate-900 transition-colors">
+                          {service.name}
+                        </h4>
+                        <p className="text-slate-600 leading-relaxed">
+                          {service.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedCard>
               ))}
             </div>
-            <div className="text-center mt-6 md:mt-8">
+
+            <div className="text-center">
               <Button 
-                variant="outline"
-                size={window.innerWidth < 768 ? "sm" : "default"}
+                size="lg"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white text-xs md:text-base"
+                className="bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white font-semibold px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift"
               >
-                Get a Quote for These Services
+                <Shield className="w-5 h-5 mr-2" />
+                Request Premium Consultation
               </Button>
             </div>
           </div>
-        </div>
+        </AnimatedCard>
       </div>
     </section>
   );
