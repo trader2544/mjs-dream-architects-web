@@ -2,7 +2,6 @@
 import { ArrowDown, Building2, Hammer, Users, Crown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import HeroSlideshow from './HeroSlideshow';
-import RotatingHouse3D from './RotatingHouse3D';
 import AnimatedCard from './AnimatedCard';
 
 const Hero = () => {
@@ -22,29 +21,13 @@ const Hero = () => {
         {/* Slideshow Background */}
         <HeroSlideshow />
         
-        {/* Floating 3D Models */}
-        <div className="absolute top-20 left-10 opacity-20 animate-float">
-          <RotatingHouse3D />
-        </div>
-        <div className="absolute bottom-20 right-10 opacity-15 animate-bounce-gentle">
-          <RotatingHouse3D />
-        </div>
-        <div className="absolute top-1/3 right-20 opacity-10 animate-pulse-slow">
-          <RotatingHouse3D />
-        </div>
-        
         {/* Desktop Content */}
         <div className="hidden md:block relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
           {/* Premium Glassmorphism card */}
           <AnimatedCard animation="scale-in" className="glass-effect-dark rounded-3xl border border-white/10 p-10 md:p-16 shadow-2xl relative">
-            {/* 3D Model in main card */}
-            <div className="absolute -top-8 -right-8 opacity-40">
-              <RotatingHouse3D />
-            </div>
-            
             <AnimatedCard animation="fade-up" delay={200} className="mb-8">
               <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-slate-600/20 to-slate-700/20 rounded-3xl mb-6 backdrop-blur-sm border border-white/10">
-                <RotatingHouse3D />
+                <Building2 className="w-10 h-10 text-slate-300" />
               </div>
             </AnimatedCard>
             
@@ -121,16 +104,9 @@ const Hero = () => {
         <div className="md:hidden relative z-10 text-center text-white px-3 w-full flex flex-col justify-center min-h-[70vh]">
           {/* Mobile Premium Card */}
           <AnimatedCard animation="scale-in" className="glass-effect-dark rounded-2xl border border-white/10 p-6 shadow-2xl mx-2 relative">
-            {/* 3D Model in mobile card */}
-            <div className="absolute -top-4 -right-4 opacity-30">
-              <div className="scale-75">
-                <RotatingHouse3D />
-              </div>
-            </div>
-            
             <AnimatedCard animation="fade-up" delay={200} className="mb-4">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-slate-600/20 to-slate-700/20 rounded-2xl mb-4 backdrop-blur-sm border border-white/10">
-                <RotatingHouse3D />
+                <Building2 className="w-8 h-8 text-slate-300" />
               </div>
             </AnimatedCard>
             
