@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Building2, Hammer, Lightbulb, Users, Award, Shield } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
+import RotatingHouse3D from './RotatingHouse3D';
 
 const Services = () => {
   const [activeCategory, setActiveCategory] = useState('design');
@@ -47,8 +48,16 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-slate-100">
+    <section id="services" className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
       <div className="container mx-auto px-4">
+        {/* 3D Model Integration */}
+        <div className="absolute top-10 right-10 opacity-20 animate-float">
+          <RotatingHouse3D />
+        </div>
+        <div className="absolute bottom-20 left-10 opacity-15 animate-bounce-gentle">
+          <RotatingHouse3D />
+        </div>
+
         <AnimatedCard animation="fade-up" className="text-center mb-16">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-2xl mb-6">
             <Award className="w-8 h-8 text-white" />
@@ -87,7 +96,12 @@ const Services = () => {
 
         {/* Active Service Category Display */}
         <AnimatedCard animation="fade-up" delay={400} className="max-w-6xl mx-auto">
-          <div className="glass-effect rounded-3xl p-8 md:p-12 border border-slate-200 shadow-2xl">
+          <div className="glass-effect rounded-3xl p-8 md:p-12 border border-slate-200 shadow-2xl relative">
+            {/* 3D Model in Service Display */}
+            <div className="absolute top-4 right-4 opacity-30">
+              <RotatingHouse3D />
+            </div>
+            
             <div className="text-center mb-10">
               {(() => {
                 const IconComponent = serviceCategories[activeCategory as keyof typeof serviceCategories].icon;
