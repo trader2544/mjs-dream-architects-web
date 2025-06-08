@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import MobileCollapsibleCard from './MobileCollapsibleCard';
+import AnimatedCard from './AnimatedCard';
 import { Building2, Home, Hammer, Factory } from 'lucide-react';
 
 const Portfolio = () => {
@@ -196,6 +197,41 @@ const Portfolio = () => {
       title: "Contemporary House",
       category: "residential",
       description: "Contemporary residential home with modern features"
+    },
+    {
+      id: 28,
+      image: "/lovable-uploads/bc74222d-4ccb-4617-b0c2-12376dae3787.png",
+      title: "Luxury Modern Villa",
+      category: "residential",
+      description: "Sophisticated two-story modern home with glass balconies and premium finishes"
+    },
+    {
+      id: 29,
+      image: "/lovable-uploads/894ef45b-3226-4057-8de0-1b9170b052fb.png",
+      title: "Contemporary Family Home",
+      category: "residential",
+      description: "Modern family residence with spacious outdoor areas and contemporary design"
+    },
+    {
+      id: 30,
+      image: "/lovable-uploads/25cddd06-9f33-42bf-8fb8-f565617b93c3.png",
+      title: "Luxury Resort Villa",
+      category: "residential",
+      description: "Premium residential complex with swimming pool and landscaped gardens"
+    },
+    {
+      id: 31,
+      image: "/lovable-uploads/86b87f98-ceb1-4992-a881-892f3d6d029a.png",
+      title: "Traditional Kenyan Home",
+      category: "residential",
+      description: "Beautiful stone and tile roof home showcasing local architectural traditions"
+    },
+    {
+      id: 32,
+      image: "/lovable-uploads/031ffd53-1274-4b16-8781-1e6b5c28e068.png",
+      title: "Tropical Paradise Villa",
+      category: "residential",
+      description: "Stunning multi-level home with red tile roofs and tropical landscaping"
     }
   ];
 
@@ -214,55 +250,60 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-8 md:py-12 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+        <AnimatedCard animation="fade-up" className="text-center mb-8 md:mb-12 lg:mb-16">
           <h2 className="text-xl md:text-2xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 md:mb-4 lg:mb-6">
             Our Projects Portfolio
           </h2>
-          <div className="w-12 md:w-16 lg:w-24 h-1 bg-blue-500 mx-auto mb-4 md:mb-6 lg:mb-8"></div>
+          <div className="w-12 md:w-16 lg:w-24 h-1 bg-blue-500 mx-auto mb-4 md:mb-6 lg:mb-8 animate-pulse"></div>
           <p className="text-xs md:text-sm lg:text-lg xl:text-xl text-gray-600 max-w-3xl mx-auto">
             <span className="hidden md:block">
-              Showcasing our finest work in design and construction
+              Showcasing Kenya's finest architectural designs and construction excellence
             </span>
             <span className="md:hidden">
-              Our finest design & construction work
+              Kenya's finest design & construction work
             </span>
           </p>
-        </div>
+        </AnimatedCard>
 
-        {/* Mobile Collapsible Filters - More Compact */}
+        {/* Mobile Collapsible Filters */}
         <div className="md:hidden mb-4">
-          {filters.map((filter) => (
-            <MobileCollapsibleCard
-              key={filter.key}
-              title={filter.label}
-              icon={filter.icon}
-              defaultOpen={filter.key === activeFilter}
+          {filters.map((filter, index) => (
+            <AnimatedCard 
+              key={filter.key} 
+              animation="slide-left" 
+              delay={index * 100}
             >
-              <Button
-                onClick={() => setActiveFilter(filter.key)}
-                size="sm"
-                className={`w-full text-xs ${
-                  activeFilter === filter.key 
-                    ? "bg-blue-500 hover:bg-blue-600 text-white" 
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+              <MobileCollapsibleCard
+                title={filter.label}
+                icon={filter.icon}
+                defaultOpen={filter.key === activeFilter}
               >
-                View {filter.label}
-              </Button>
-            </MobileCollapsibleCard>
+                <Button
+                  onClick={() => setActiveFilter(filter.key)}
+                  size="sm"
+                  className={`w-full text-xs hover-scale ${
+                    activeFilter === filter.key 
+                      ? "bg-blue-500 hover:bg-blue-600 text-white" 
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                >
+                  View {filter.label}
+                </Button>
+              </MobileCollapsibleCard>
+            </AnimatedCard>
           ))}
         </div>
 
         {/* Desktop Project Filters */}
-        <div className="hidden md:flex flex-wrap justify-center gap-4 mb-12">
-          {filters.map((filter) => (
+        <AnimatedCard animation="fade-up" delay={200} className="hidden md:flex flex-wrap justify-center gap-4 mb-12">
+          {filters.map((filter, index) => (
             <Button
               key={filter.key}
               variant={activeFilter === filter.key ? "default" : "outline"}
               onClick={() => setActiveFilter(filter.key)}
-              className={`px-6 py-2 flex items-center space-x-2 ${
+              className={`px-6 py-2 flex items-center space-x-2 hover-scale transition-all duration-300 ${
                 activeFilter === filter.key 
-                  ? "bg-blue-500 hover:bg-blue-600" 
+                  ? "bg-blue-500 hover:bg-blue-600 scale-105" 
                   : "border-blue-500 text-blue-500 hover:bg-blue-50"
               }`}
             >
@@ -270,24 +311,25 @@ const Portfolio = () => {
               <span>{filter.label}</span>
             </Button>
           ))}
-        </div>
+        </AnimatedCard>
 
         {/* Project Carousel */}
-        <div className="max-w-6xl mx-auto">
+        <AnimatedCard animation="scale-in" delay={400} className="max-w-6xl mx-auto">
           <Carousel className="w-full">
             <CarouselContent>
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, index) => (
                 <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="bg-white rounded-lg md:rounded-xl lg:rounded-2xl shadow-lg overflow-hidden hover-scale group">
-                    <div className="aspect-[4/3] overflow-hidden">
+                  <div className="bg-white rounded-lg md:rounded-xl lg:rounded-2xl shadow-lg overflow-hidden hover-scale group transition-all duration-500 hover:shadow-2xl hover:shadow-blue-200/50">
+                    <div className="aspect-[4/3] overflow-hidden relative">
                       <img 
                         src={project.image} 
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div className="p-2 md:p-3 lg:p-6">
-                      <h3 className="text-xs md:text-sm lg:text-xl font-bold text-gray-900 mb-1 md:mb-2">
+                      <h3 className="text-xs md:text-sm lg:text-xl font-bold text-gray-900 mb-1 md:mb-2 group-hover:text-blue-600 transition-colors">
                         {project.title}
                       </h3>
                       <p className="text-gray-600 mb-2 md:mb-4 text-xs md:text-xs lg:text-base">
@@ -296,7 +338,7 @@ const Portfolio = () => {
                       <Button 
                         variant="outline" 
                         size="sm"
-                        className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white text-xs md:text-sm h-6 md:h-8"
+                        className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white text-xs md:text-sm h-6 md:h-8 hover-scale transition-all duration-300"
                       >
                         View Details
                       </Button>
@@ -305,10 +347,10 @@ const Portfolio = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="hover-scale transition-transform duration-200" />
+            <CarouselNext className="hover-scale transition-transform duration-200" />
           </Carousel>
-        </div>
+        </AnimatedCard>
       </div>
     </section>
   );
