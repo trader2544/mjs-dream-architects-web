@@ -1,4 +1,3 @@
-
 import { ArrowDown, Building2, Hammer, Users, Crown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import HeroSlideshow from './HeroSlideshow';
@@ -38,9 +37,9 @@ const Hero = () => {
                 <Crown className="w-8 h-8 text-yellow-400 ml-3" />
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-                <span className="block gradient-text">Elevate.</span>
-                <span className="block text-white/90">Construct.</span>
-                <span className="block text-slate-300">Transform.</span>
+                <span className="block gradient-text">Craft.</span>
+                <span className="block text-white/90">&</span>
+                <span className="block text-slate-300">Create.</span>
               </h1>
             </AnimatedCard>
             
@@ -117,8 +116,8 @@ const Hero = () => {
                 <Crown className="w-5 h-5 text-yellow-400 ml-2" />
               </div>
               <h1 className="text-xl font-bold mb-4 leading-tight">
-                <span className="block gradient-text">Elevate.</span>
-                <span className="block text-white/90">Transform.</span>
+                <span className="block gradient-text">Craft.</span>
+                <span className="block text-white/90">& Create.</span>
               </h1>
             </AnimatedCard>
             

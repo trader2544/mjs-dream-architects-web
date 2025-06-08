@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Building2, Hammer, Lightbulb, Users, Award, Shield } from 'lucide-react';
@@ -99,7 +98,7 @@ const Services = () => {
               <div className="w-16 h-1 bg-gradient-to-r from-slate-600 to-slate-700 mx-auto"></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
               {serviceCategories[activeCategory as keyof typeof serviceCategories].services.map((service, index) => (
                 <AnimatedCard 
                   key={index} 
@@ -107,16 +106,16 @@ const Services = () => {
                   delay={index * 100}
                   className="group"
                 >
-                  <div className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-slate-300 transition-all duration-300 hover-lift shadow-lg hover:shadow-xl">
-                    <div className="flex items-start space-x-4">
+                  <div className="bg-white rounded-2xl p-4 md:p-6 border border-slate-200 hover:border-slate-300 transition-all duration-300 hover-lift shadow-lg hover:shadow-xl">
+                    <div className="flex items-start space-x-3 md:space-x-4">
                       <div className="flex-shrink-0">
-                        <div className="w-3 h-3 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full mt-2"></div>
+                        <div className="w-2 h-2 md:w-3 md:h-3 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full mt-1 md:mt-2"></div>
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-slate-900 transition-colors">
+                        <h4 className="text-sm md:text-lg font-bold text-slate-800 mb-1 md:mb-2 group-hover:text-slate-900 transition-colors">
                           {service.name}
                         </h4>
-                        <p className="text-slate-600 leading-relaxed">
+                        <p className="text-xs md:text-base text-slate-600 leading-relaxed">
                           {service.desc}
                         </p>
                       </div>
