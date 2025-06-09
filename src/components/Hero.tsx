@@ -1,4 +1,3 @@
-
 import { ArrowDown, Building2, Hammer, Users, Crown, Wrench, TreePine } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import HeroSlideshow from './HeroSlideshow';
@@ -124,7 +123,7 @@ const Hero = () => {
                 <span className="text-yellow-400 font-medium text-sm tracking-wide uppercase">Premium</span>
                 <Crown className="w-5 h-5 text-yellow-400 ml-2" />
               </div>
-              <h1 className="text-xl font-bold mb-4 leading-tight">
+              <h1 className="text-xl font-bold mb-3 leading-tight">
                 <span className="block gradient-text">Craft.</span>
                 <span className="block text-white/90">& Create.</span>
               </h1>
@@ -190,34 +189,34 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* Workshop Advertisement Section */}
-      <section className="py-8 md:py-12 bg-gradient-to-br from-amber-50 to-orange-50 border-t border-amber-100">
+      {/* Workshop Advertisement Section - Updated to fade blue theme */}
+      <section className="py-8 md:py-12 bg-gradient-to-br from-blue-50 to-slate-50 border-t border-blue-100">
         <div className="container mx-auto px-4">
           {/* Desktop Version - Full Display */}
           <AnimatedCard animation="fade-up" className="hidden md:block max-w-6xl mx-auto">
-            <div className="glass-effect rounded-3xl p-6 md:p-10 border border-amber-200 shadow-xl relative overflow-hidden">
+            <div className="glass-effect rounded-3xl p-6 md:p-10 border border-blue-200 shadow-xl relative overflow-hidden">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-4 left-4 w-8 h-8 border-2 border-amber-600 rotate-45"></div>
-                <div className="absolute top-8 right-8 w-6 h-6 bg-amber-400 rounded-full"></div>
-                <div className="absolute bottom-6 left-8 w-4 h-4 bg-orange-400 rotate-45"></div>
-                <div className="absolute bottom-4 right-4 w-10 h-10 border-2 border-orange-500 rounded-full"></div>
+                <div className="absolute top-4 left-4 w-8 h-8 border-2 border-blue-600 rotate-45"></div>
+                <div className="absolute top-8 right-8 w-6 h-6 bg-blue-400 rounded-full"></div>
+                <div className="absolute bottom-6 left-8 w-4 h-4 bg-slate-400 rotate-45"></div>
+                <div className="absolute bottom-4 right-4 w-10 h-10 border-2 border-slate-500 rounded-full"></div>
               </div>
 
               <div className="relative z-10 text-center">
                 <AnimatedCard animation="scale-in" delay={200} className="mb-6">
                   <div className="inline-flex items-center justify-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-amber-700 rounded-2xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center">
                       <TreePine className="w-6 h-6 text-white" />
                     </div>
-                    <div className="w-12 h-12 bg-gradient-to-br from-gray-600 to-gray-700 rounded-2xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-slate-600 to-slate-700 rounded-2xl flex items-center justify-center">
                       <Wrench className="w-6 h-6 text-white" />
                     </div>
                   </div>
                   <h2 className="text-2xl md:text-4xl font-bold gradient-text mb-3">
                     Expert Workshop Services
                   </h2>
-                  <div className="w-16 h-1 bg-gradient-to-r from-amber-600 to-orange-600 mx-auto"></div>
+                  <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-slate-600 mx-auto"></div>
                 </AnimatedCard>
 
                 <AnimatedCard animation="fade-up" delay={400} className="mb-8">
@@ -228,23 +227,23 @@ const Hero = () => {
 
                 {/* Service Highlights */}
                 <AnimatedCard animation="slide-left" delay={600} className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-8">
-                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-amber-100 hover-scale">
-                    <TreePine className="w-6 h-6 md:w-8 md:h-8 text-amber-600 mx-auto mb-2" />
+                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-blue-100 hover-scale">
+                    <TreePine className="w-6 h-6 md:w-8 md:h-8 text-blue-600 mx-auto mb-2" />
                     <h4 className="text-xs md:text-sm font-bold text-slate-800 mb-1">Custom Doors</h4>
                     <p className="text-xs text-slate-600">Wooden & Security</p>
                   </div>
-                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-amber-100 hover-scale">
-                    <Wrench className="w-6 h-6 md:w-8 md:h-8 text-gray-600 mx-auto mb-2" />
+                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-blue-100 hover-scale">
+                    <Wrench className="w-6 h-6 md:w-8 md:h-8 text-slate-600 mx-auto mb-2" />
                     <h4 className="text-xs md:text-sm font-bold text-slate-800 mb-1">Metal Works</h4>
                     <p className="text-xs text-slate-600">Gates & Grilles</p>
                   </div>
-                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-amber-100 hover-scale">
-                    <Hammer className="w-6 h-6 md:w-8 md:h-8 text-amber-600 mx-auto mb-2" />
+                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-blue-100 hover-scale">
+                    <Hammer className="w-6 h-6 md:w-8 md:h-8 text-blue-600 mx-auto mb-2" />
                     <h4 className="text-xs md:text-sm font-bold text-slate-800 mb-1">Furniture</h4>
                     <p className="text-xs text-slate-600">Custom Design</p>
                   </div>
-                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-amber-100 hover-scale">
-                    <Building2 className="w-6 h-6 md:w-8 md:h-8 text-gray-600 mx-auto mb-2" />
+                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-blue-100 hover-scale">
+                    <Building2 className="w-6 h-6 md:w-8 md:h-8 text-slate-600 mx-auto mb-2" />
                     <h4 className="text-xs md:text-sm font-bold text-slate-800 mb-1">Structures</h4>
                     <p className="text-xs text-slate-600">Outdoor & Indoor</p>
                   </div>
@@ -255,7 +254,7 @@ const Hero = () => {
                   <Button 
                     size="lg"
                     onClick={scrollToWorkshop}
-                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift"
+                    className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift"
                   >
                     View Workshop Services
                   </Button>
@@ -264,7 +263,7 @@ const Hero = () => {
                     size="lg"
                     variant="outline"
                     onClick={() => window.open('tel:0711236128')}
-                    className="border-amber-600/20 text-amber-700 hover:bg-amber-50 font-semibold px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-2xl hover-scale"
+                    className="border-blue-600/20 text-blue-700 hover:bg-blue-50 font-semibold px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-2xl hover-scale"
                   >
                     Call Workshop
                   </Button>
@@ -273,7 +272,7 @@ const Hero = () => {
                     size="lg"
                     variant="outline"
                     onClick={() => window.open('https://wa.me/qr/W7Y5C2TH34Q2B1')}
-                    className="border-amber-600/20 text-amber-700 hover:bg-amber-50 font-semibold px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-2xl hover-scale animate-pulse-slow"
+                    className="border-blue-600/20 text-blue-700 hover:bg-blue-50 font-semibold px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-2xl hover-scale animate-pulse-slow"
                   >
                     WhatsApp Us
                   </Button>
@@ -299,20 +298,20 @@ const Hero = () => {
 
               {/* Compact Service Highlights */}
               <div className="grid grid-cols-2 gap-2 mb-4">
-                <div className="bg-amber-50 rounded-lg p-2 border border-amber-100">
-                  <TreePine className="w-4 h-4 text-amber-600 mx-auto mb-1" />
+                <div className="bg-blue-50 rounded-lg p-2 border border-blue-100">
+                  <TreePine className="w-4 h-4 text-blue-600 mx-auto mb-1" />
                   <p className="text-xs font-medium text-slate-800">Custom Doors</p>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-2 border border-gray-100">
-                  <Wrench className="w-4 h-4 text-gray-600 mx-auto mb-1" />
+                <div className="bg-slate-50 rounded-lg p-2 border border-slate-100">
+                  <Wrench className="w-4 h-4 text-slate-600 mx-auto mb-1" />
                   <p className="text-xs font-medium text-slate-800">Metal Works</p>
                 </div>
-                <div className="bg-amber-50 rounded-lg p-2 border border-amber-100">
-                  <Hammer className="w-4 h-4 text-amber-600 mx-auto mb-1" />
+                <div className="bg-blue-50 rounded-lg p-2 border border-blue-100">
+                  <Hammer className="w-4 h-4 text-blue-600 mx-auto mb-1" />
                   <p className="text-xs font-medium text-slate-800">Furniture</p>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-2 border border-gray-100">
-                  <Building2 className="w-4 h-4 text-gray-600 mx-auto mb-1" />
+                <div className="bg-slate-50 rounded-lg p-2 border border-slate-100">
+                  <Building2 className="w-4 h-4 text-slate-600 mx-auto mb-1" />
                   <p className="text-xs font-medium text-slate-800">Structures</p>
                 </div>
               </div>
@@ -322,7 +321,7 @@ const Hero = () => {
                 <Button 
                   size="sm"
                   onClick={scrollToWorkshop}
-                  className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold w-full text-xs py-2 rounded-lg"
+                  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold w-full text-xs py-2 rounded-lg"
                 >
                   View Services
                 </Button>
@@ -332,7 +331,7 @@ const Hero = () => {
                     size="sm"
                     variant="outline"
                     onClick={() => window.open('tel:0711236128')}
-                    className="border-amber-600/20 text-amber-700 hover:bg-amber-50 font-medium flex-1 text-xs py-2 rounded-lg"
+                    className="border-blue-600/20 text-blue-700 hover:bg-blue-50 font-medium flex-1 text-xs py-2 rounded-lg"
                   >
                     Call
                   </Button>
@@ -341,7 +340,7 @@ const Hero = () => {
                     size="sm"
                     variant="outline"
                     onClick={() => window.open('https://wa.me/qr/W7Y5C2TH34Q2B1')}
-                    className="border-amber-600/20 text-amber-700 hover:bg-amber-50 font-medium flex-1 text-xs py-2 rounded-lg"
+                    className="border-blue-600/20 text-blue-700 hover:bg-blue-50 font-medium flex-1 text-xs py-2 rounded-lg"
                   >
                     WhatsApp
                   </Button>

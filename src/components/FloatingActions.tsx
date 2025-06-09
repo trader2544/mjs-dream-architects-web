@@ -15,10 +15,10 @@ const FloatingActions = () => {
         </svg>
       </Button>
 
-      {/* Call Button - Right Side */}
+      {/* Call Button - Right Side - Updated to fade blue */}
       <Button
         onClick={() => window.open('tel:0711236128')}
-        className="w-14 h-14 bg-blue-500 hover:bg-blue-600 rounded-full shadow-lg hover-scale flex items-center justify-center"
+        className="w-14 h-14 fade-blue-gradient hover:from-blue-700 hover:to-blue-800 rounded-full shadow-lg hover-scale flex items-center justify-center"
       >
         <Phone className="w-7 h-7 text-white" />
       </Button>
