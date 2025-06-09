@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Phone, ArrowDown } from 'lucide-react';
@@ -7,6 +8,7 @@ import AboutUs from '@/components/AboutUs';
 import Services from '@/components/Services';
 import Portfolio from '@/components/Portfolio';
 import WhyChooseUs from '@/components/WhyChooseUs';
+import Workshop from '@/components/Workshop';
 import Testimonials from '@/components/Testimonials';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
@@ -264,6 +266,7 @@ const Index = () => {
         <Services />
         <Portfolio />
         <WhyChooseUs />
+        <Workshop />
         <Testimonials />
         <ContactForm />
         <Footer />
