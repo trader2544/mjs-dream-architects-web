@@ -1,4 +1,5 @@
-import { ArrowDown, Building2, Hammer, Users, Crown } from 'lucide-react';
+
+import { ArrowDown, Building2, Hammer, Users, Crown, Wrench, TreePine } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import HeroSlideshow from './HeroSlideshow';
 import AnimatedCard from './AnimatedCard';
@@ -6,6 +7,13 @@ import AnimatedCard from './AnimatedCard';
 const Hero = () => {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToWorkshop = () => {
+    const element = document.getElementById('workshop');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -178,6 +186,99 @@ const Hero = () => {
           <div className="animate-bounce-gentle mt-6">
             <ArrowDown className="w-6 h-6 mx-auto text-white/60" />
           </div>
+        </div>
+      </section>
+
+      {/* Workshop Advertisement Section */}
+      <section className="py-8 md:py-12 bg-gradient-to-br from-amber-50 to-orange-50 border-t border-amber-100">
+        <div className="container mx-auto px-4">
+          <AnimatedCard animation="fade-up" className="max-w-6xl mx-auto">
+            <div className="glass-effect rounded-3xl p-6 md:p-10 border border-amber-200 shadow-xl relative overflow-hidden">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-4 left-4 w-8 h-8 border-2 border-amber-600 rotate-45"></div>
+                <div className="absolute top-8 right-8 w-6 h-6 bg-amber-400 rounded-full"></div>
+                <div className="absolute bottom-6 left-8 w-4 h-4 bg-orange-400 rotate-45"></div>
+                <div className="absolute bottom-4 right-4 w-10 h-10 border-2 border-orange-500 rounded-full"></div>
+              </div>
+
+              <div className="relative z-10 text-center">
+                <AnimatedCard animation="scale-in" delay={200} className="mb-6">
+                  <div className="inline-flex items-center justify-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-amber-700 rounded-2xl flex items-center justify-center">
+                      <TreePine className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="w-12 h-12 bg-gradient-to-br from-gray-600 to-gray-700 rounded-2xl flex items-center justify-center">
+                      <Wrench className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  <h2 className="text-2xl md:text-4xl font-bold gradient-text mb-3">
+                    Expert Workshop Services
+                  </h2>
+                  <div className="w-16 h-1 bg-gradient-to-r from-amber-600 to-orange-600 mx-auto"></div>
+                </AnimatedCard>
+
+                <AnimatedCard animation="fade-up" delay={400} className="mb-8">
+                  <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                    From custom timber doors to security metalwork - our workshop delivers premium craftsmanship for your home and business needs.
+                  </p>
+                </AnimatedCard>
+
+                {/* Service Highlights */}
+                <AnimatedCard animation="slide-left" delay={600} className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-8">
+                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-amber-100 hover-scale">
+                    <TreePine className="w-6 h-6 md:w-8 md:h-8 text-amber-600 mx-auto mb-2" />
+                    <h4 className="text-xs md:text-sm font-bold text-slate-800 mb-1">Custom Doors</h4>
+                    <p className="text-xs text-slate-600">Wooden & Security</p>
+                  </div>
+                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-amber-100 hover-scale">
+                    <Wrench className="w-6 h-6 md:w-8 md:h-8 text-gray-600 mx-auto mb-2" />
+                    <h4 className="text-xs md:text-sm font-bold text-slate-800 mb-1">Metal Works</h4>
+                    <p className="text-xs text-slate-600">Gates & Grilles</p>
+                  </div>
+                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-amber-100 hover-scale">
+                    <Hammer className="w-6 h-6 md:w-8 md:h-8 text-amber-600 mx-auto mb-2" />
+                    <h4 className="text-xs md:text-sm font-bold text-slate-800 mb-1">Furniture</h4>
+                    <p className="text-xs text-slate-600">Custom Design</p>
+                  </div>
+                  <div className="glass-effect rounded-xl p-3 md:p-4 border border-amber-100 hover-scale">
+                    <Building2 className="w-6 h-6 md:w-8 md:h-8 text-gray-600 mx-auto mb-2" />
+                    <h4 className="text-xs md:text-sm font-bold text-slate-800 mb-1">Structures</h4>
+                    <p className="text-xs text-slate-600">Outdoor & Indoor</p>
+                  </div>
+                </AnimatedCard>
+
+                {/* Call to Action */}
+                <AnimatedCard animation="fade-up" delay={800} className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
+                  <Button 
+                    size="lg"
+                    onClick={scrollToWorkshop}
+                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover-lift"
+                  >
+                    View Workshop Services
+                  </Button>
+                  
+                  <Button 
+                    size="lg"
+                    variant="outline"
+                    onClick={() => window.open('tel:0711236128')}
+                    className="border-amber-600/20 text-amber-700 hover:bg-amber-50 font-semibold px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-2xl hover-scale"
+                  >
+                    Call Workshop
+                  </Button>
+                  
+                  <Button 
+                    size="lg"
+                    variant="outline"
+                    onClick={() => window.open('https://wa.me/qr/W7Y5C2TH34Q2B1')}
+                    className="border-amber-600/20 text-amber-700 hover:bg-amber-50 font-semibold px-6 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-2xl hover-scale animate-pulse-slow"
+                  >
+                    WhatsApp Us
+                  </Button>
+                </AnimatedCard>
+              </div>
+            </div>
+          </AnimatedCard>
         </div>
       </section>
     </>

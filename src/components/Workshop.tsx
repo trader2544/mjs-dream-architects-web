@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Hammer, Wrench, TreePine, Shield, Star, Phone } from 'lucide-react';
@@ -35,7 +34,7 @@ const Workshop = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-amber-50 to-gray-50 relative overflow-hidden">
+    <section id="workshop" className="py-16 md:py-24 bg-gradient-to-br from-amber-50 to-gray-50 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <AnimatedCard animation="fade-up" className="text-center mb-16">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-600 to-amber-700 rounded-2xl mb-6">
