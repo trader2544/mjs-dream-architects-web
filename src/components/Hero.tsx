@@ -3,6 +3,7 @@ import { ArrowDown, Building2, Hammer, Users, Crown, Wrench, TreePine } from 'lu
 import { Button } from '@/components/ui/button';
 import HeroSlideshow from './HeroSlideshow';
 import AnimatedCard from './AnimatedCard';
+import MobileCollapsibleCard from './MobileCollapsibleCard';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -192,7 +193,8 @@ const Hero = () => {
       {/* Workshop Advertisement Section */}
       <section className="py-8 md:py-12 bg-gradient-to-br from-amber-50 to-orange-50 border-t border-amber-100">
         <div className="container mx-auto px-4">
-          <AnimatedCard animation="fade-up" className="max-w-6xl mx-auto">
+          {/* Desktop Version - Full Display */}
+          <AnimatedCard animation="fade-up" className="hidden md:block max-w-6xl mx-auto">
             <div className="glass-effect rounded-3xl p-6 md:p-10 border border-amber-200 shadow-xl relative overflow-hidden">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-5">
@@ -279,6 +281,74 @@ const Hero = () => {
               </div>
             </div>
           </AnimatedCard>
+
+          {/* Mobile Version - Collapsible */}
+          <MobileCollapsibleCard
+            title="Workshop Services"
+            icon={
+              <div className="flex space-x-1">
+                <TreePine className="w-4 h-4" />
+                <Wrench className="w-4 h-4" />
+              </div>
+            }
+          >
+            <div className="text-center">
+              <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                Custom timber doors to security metalwork - premium craftsmanship for your needs.
+              </p>
+
+              {/* Compact Service Highlights */}
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                <div className="bg-amber-50 rounded-lg p-2 border border-amber-100">
+                  <TreePine className="w-4 h-4 text-amber-600 mx-auto mb-1" />
+                  <p className="text-xs font-medium text-slate-800">Custom Doors</p>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2 border border-gray-100">
+                  <Wrench className="w-4 h-4 text-gray-600 mx-auto mb-1" />
+                  <p className="text-xs font-medium text-slate-800">Metal Works</p>
+                </div>
+                <div className="bg-amber-50 rounded-lg p-2 border border-amber-100">
+                  <Hammer className="w-4 h-4 text-amber-600 mx-auto mb-1" />
+                  <p className="text-xs font-medium text-slate-800">Furniture</p>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-2 border border-gray-100">
+                  <Building2 className="w-4 h-4 text-gray-600 mx-auto mb-1" />
+                  <p className="text-xs font-medium text-slate-800">Structures</p>
+                </div>
+              </div>
+
+              {/* Mobile Action Buttons */}
+              <div className="space-y-2">
+                <Button 
+                  size="sm"
+                  onClick={scrollToWorkshop}
+                  className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold w-full text-xs py-2 rounded-lg"
+                >
+                  View Services
+                </Button>
+                
+                <div className="flex gap-2">
+                  <Button 
+                    size="sm"
+                    variant="outline"
+                    onClick={() => window.open('tel:0711236128')}
+                    className="border-amber-600/20 text-amber-700 hover:bg-amber-50 font-medium flex-1 text-xs py-2 rounded-lg"
+                  >
+                    Call
+                  </Button>
+                  
+                  <Button 
+                    size="sm"
+                    variant="outline"
+                    onClick={() => window.open('https://wa.me/qr/W7Y5C2TH34Q2B1')}
+                    className="border-amber-600/20 text-amber-700 hover:bg-amber-50 font-medium flex-1 text-xs py-2 rounded-lg"
+                  >
+                    WhatsApp
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </MobileCollapsibleCard>
         </div>
       </section>
     </>
