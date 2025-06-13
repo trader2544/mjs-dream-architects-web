@@ -1,4 +1,3 @@
-
 import emailjs from '@emailjs/browser';
 
 // EmailJS configuration
@@ -20,7 +19,7 @@ export interface QuoteRequestData {
 export const sendQuoteRequest = async (data: QuoteRequestData): Promise<boolean> => {
   try {
     console.log('Sending quote request via EmailJS:', data);
-    
+
     // Prepare the email template parameters
     const templateParams = {
       from_name: data.fullName,
@@ -30,12 +29,13 @@ export const sendQuoteRequest = async (data: QuoteRequestData): Promise<boolean>
       services: data.servicesNeeded.join(', '),
       to_name: 'MJS Products Team',
       reply_to: data.email,
+      // You can add more params here if your template expects them
     };
 
-    // Send the email (you'll need to create a template in EmailJS dashboard)
+    // Send the email using the new template_id
     const result = await emailjs.send(
       EMAIL_SERVICE_ID,
-      'template_quote_request', // You'll need to create this template in EmailJS
+      'template_i836dq5', // Updated to new template ID
       templateParams
     );
 
