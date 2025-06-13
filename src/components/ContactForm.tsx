@@ -4,10 +4,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
+import { sendQuoteRequest } from '@/services/emailService';
+
 const ContactForm = () => {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -16,8 +17,20 @@ const ContactForm = () => {
     projectPlan: null as File | null,
     servicesNeeded: [] as string[]
   });
-  const availableServices = ['Architectural Design', 'Structural Design', 'Interior Design', 'Residential Construction', 'Commercial Construction', 'Renovations & Remodeling', 'Project Management', 'Cost Estimation', 'Permit Assistance'];
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const availableServices = [
+    'Architectural Design',
+    'Structural Design', 
+    'Interior Design',
+    'Residential Construction',
+    'Commercial Construction',
+    'Renovations & Remodeling',
+    'Project Management',
+    'Cost Estimation',
+    'Permit Assistance'
+  ];
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Basic validation
@@ -30,33 +43,51 @@ const ContactForm = () => {
       return;
     }
 
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    toast({
-      title: "Success!",
-      description: "Your request has been submitted. We'll contact you soon!"
-    });
+    setIsSubmitting(true);
 
-    // Reset form
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      message: '',
-      projectPlan: null,
-      servicesNeeded: []
-    });
+    try {
+      console.log('Submitting quote request:', formData);
+      
+      const success = await sendQuoteRequest(formData);
+      
+      if (success) {
+        toast({
+          title: "Success!",
+          description: "Your quote request has been sent successfully! We'll contact you soon."
+        });
+
+        // Reset form
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          message: '',
+          projectPlan: null,
+          servicesNeeded: []
+        });
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send your request. Please try again or contact us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     setFormData(prev => ({
@@ -64,13 +95,18 @@ const ContactForm = () => {
       projectPlan: file
     }));
   };
+
   const handleServiceToggle = (service: string) => {
     setFormData(prev => ({
       ...prev,
-      servicesNeeded: prev.servicesNeeded.includes(service) ? prev.servicesNeeded.filter(s => s !== service) : [...prev.servicesNeeded, service]
+      servicesNeeded: prev.servicesNeeded.includes(service)
+        ? prev.servicesNeeded.filter(s => s !== service)
+        : [...prev.servicesNeeded, service]
     }));
   };
-  return <section id="contact" className="py-12 md:py-24 bg-slate-50">
+
+  return (
+    <section id="contact" className="py-12 md:py-24 bg-slate-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
@@ -141,21 +177,51 @@ const ContactForm = () => {
                   <Label htmlFor="fullName" className="text-xs md:text-sm font-medium text-gray-700">
                     Full Name *
                   </Label>
-                  <Input id="fullName" name="fullName" type="text" required value={formData.fullName} onChange={handleInputChange} className="mt-1 text-xs md:text-base h-8 md:h-10" placeholder="Enter your full name" />
+                  <Input
+                    id="fullName"
+                    name="fullName"
+                    type="text"
+                    required
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    className="mt-1 text-xs md:text-base h-8 md:h-10"
+                    placeholder="Enter your full name"
+                    disabled={isSubmitting}
+                  />
                 </div>
 
                 <div>
                   <Label htmlFor="email" className="text-xs md:text-sm font-medium text-gray-700">
                     Email *
                   </Label>
-                  <Input id="email" name="email" type="email" required value={formData.email} onChange={handleInputChange} className="mt-1 text-xs md:text-base h-8 md:h-10" placeholder="Enter your email" />
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="mt-1 text-xs md:text-base h-8 md:h-10"
+                    placeholder="Enter your email"
+                    disabled={isSubmitting}
+                  />
                 </div>
 
                 <div>
                   <Label htmlFor="phone" className="text-xs md:text-sm font-medium text-gray-700">
                     Phone Number *
                   </Label>
-                  <Input id="phone" name="phone" type="tel" required value={formData.phone} onChange={handleInputChange} className="mt-1 text-xs md:text-base h-8 md:h-10" placeholder="Enter your phone number" />
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="mt-1 text-xs md:text-base h-8 md:h-10"
+                    placeholder="Enter your phone number"
+                    disabled={isSubmitting}
+                  />
                 </div>
 
                 {/* Services Needed */}
@@ -164,10 +230,18 @@ const ContactForm = () => {
                     Services Needed
                   </Label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                    {availableServices.map(service => <label key={service} className="flex items-center space-x-1 md:space-x-2 cursor-pointer">
-                        <input type="checkbox" checked={formData.servicesNeeded.includes(service)} onChange={() => handleServiceToggle(service)} className="rounded border-gray-300 text-blue-500 focus:ring-blue-500 w-3 h-3 md:w-4 md:h-4" />
+                    {availableServices.map(service => (
+                      <label key={service} className="flex items-center space-x-1 md:space-x-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={formData.servicesNeeded.includes(service)}
+                          onChange={() => handleServiceToggle(service)}
+                          className="rounded border-gray-300 text-blue-500 focus:ring-blue-500 w-3 h-3 md:w-4 md:h-4"
+                          disabled={isSubmitting}
+                        />
                         <span className="text-xs md:text-sm text-gray-700">{service}</span>
-                      </label>)}
+                      </label>
+                    ))}
                   </div>
                 </div>
 
@@ -175,27 +249,51 @@ const ContactForm = () => {
                   <Label htmlFor="message" className="text-xs md:text-sm font-medium text-gray-700">
                     Project Details *
                   </Label>
-                  <textarea id="message" name="message" required value={formData.message} onChange={handleInputChange} rows={3} className="mt-1 w-full px-2 md:px-3 py-1 md:py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-xs md:text-base" placeholder="Describe your project requirements..." />
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={3}
+                    className="mt-1 w-full px-2 md:px-3 py-1 md:py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-xs md:text-base"
+                    placeholder="Describe your project requirements..."
+                    disabled={isSubmitting}
+                  />
                 </div>
 
                 <div>
                   <Label htmlFor="projectPlan" className="text-xs md:text-sm font-medium text-gray-700">
                     Upload Project Plan (Optional)
                   </Label>
-                  <Input id="projectPlan" name="projectPlan" type="file" onChange={handleFileChange} className="mt-1 text-xs md:text-base h-8 md:h-10" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" />
+                  <Input
+                    id="projectPlan"
+                    name="projectPlan"
+                    type="file"
+                    onChange={handleFileChange}
+                    className="mt-1 text-xs md:text-base h-8 md:h-10"
+                    accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                    disabled={isSubmitting}
+                  />
                   <p className="text-xs text-gray-500 mt-1">
                     Supported formats: PDF, JPG, PNG, DOC, DOCX
                   </p>
                 </div>
 
-                <Button type="submit" className="w-full text-white font-semibold py-2 md:py-3 text-sm md:text-lg bg-zinc-600 hover:bg-zinc-500">
-                  Submit Request
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full text-white font-semibold py-2 md:py-3 text-sm md:text-lg bg-zinc-600 hover:bg-zinc-500 disabled:opacity-50"
+                >
+                  {isSubmitting ? 'Sending Request...' : 'Submit Request'}
                 </Button>
               </form>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ContactForm;
